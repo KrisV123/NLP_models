@@ -14,13 +14,6 @@ def get_full_text(nlp: spacy.language.Language, train_doc: str, output: str) -> 
 
 
 def create_pretrain_json(nlp: spacy.language.Language, train_doc: str, output: str) -> None:
-    """
-    Example:
-    py -m spacy pretrain
-        project/models/sk_model_init/config.cfg
-        project/corpus_n1/pretrain
-        --paths.raw_text project/corpus_n1/pretrain.jsonl
-    """
 
     doc_bin = DocBin().from_disk(train_doc)
     docs = list(doc_bin.get_docs(vocab=nlp.vocab))

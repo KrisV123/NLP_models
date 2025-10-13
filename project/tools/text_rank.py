@@ -146,29 +146,3 @@ def clean_sents(sents: list[str]) -> list[str]:
                 sent = sent + '.'
         cleaned_sents.append(sent)
     return cleaned_sents
-
-
-if __name__ == '__main__':
-    #Language.Defaults.syntax_iterators["noun_chunks"] = noun_chunks
-
-    #from project.tools.test_texts import text_2, real_article_2
-
-    """print(
-        text_summarization(
-            'sk_specified_model',
-            real_article_2.replace('\n', ' '),
-            3,
-            5
-        )
-    )"""
-
-    """print(
-        phrase_generator(
-            'sk_specified_model',
-            real_article_2.replace('\n', ' '),
-            3,
-            2,
-            100
-        )
-    )"""
-    pass
