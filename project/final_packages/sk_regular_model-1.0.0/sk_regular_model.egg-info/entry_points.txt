@@ -1,0 +1,2 @@
+[spacy_models]
+sk_regular_model = sk_regular_model

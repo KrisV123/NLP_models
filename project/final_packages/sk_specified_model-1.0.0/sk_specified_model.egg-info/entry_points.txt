@@ -1,0 +1,2 @@
+[spacy_models]
+sk_specified_model = sk_specified_model
