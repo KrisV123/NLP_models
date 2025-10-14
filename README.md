@@ -1,4 +1,4 @@
-# Slovak NLP models for spacy frameworks
+# Slovak NLP models for spacy framework
 
 A collection of 3 fully-trained CNN models for Slovak Language designed for lightweight usage.
 Every model include morphologizer, parser, tagger and trainable lemmatizer.
@@ -37,7 +37,6 @@ next can be used with tools from project/tools/text_rank.py
 #### Example
 
 ```python
-import spacy
 from project.tools.text_rank import phrase_generator, text_summarization
 from project.tools.test_texts import real_article
 
