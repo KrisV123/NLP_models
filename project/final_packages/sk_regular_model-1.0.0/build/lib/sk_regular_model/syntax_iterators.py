@@ -1,7 +1,5 @@
 from typing import Iterator, Union, Tuple
-
 from spacy.tokens import Doc, Span
-import spacy
 
 def noun_chunks(doclike: Union[Doc, Span]) -> Iterator[Tuple[int, int, int]]:
     LEFT_MODIFIERS = (
@@ -12,14 +10,14 @@ def noun_chunks(doclike: Union[Doc, Span]) -> Iterator[Tuple[int, int, int]]:
         "nummod",       # číslovka (tri domy)
         "nummod:gov",   # riadená číslovka (napr. päť litrov)
         "neg",          # negátor (napr. „nie“ pri adj. alebo príslovke)
-        "case",         # predložkový marker pre nmod
+        "case"          # predložkový marker pre nmod
     )
 
     RIGHT_MODIFIERS = (
         "nmod",         # nominal modifier (genitív, PP, atď.)
         "flat",         # ploché štruktúry, napr. mená (Bratislava mesto)
         "fixed",        # pevné viacslovné výrazy (idiomy)
-        "xcomp",        # doplnková fráza (napr. „túžba byť lepší“)
+        "xcomp"         # doplnková fráza (napr. „túžba byť lepší“)
     )
 
     INDEPEND_MODIFIERS = (
@@ -28,6 +26,7 @@ def noun_chunks(doclike: Union[Doc, Span]) -> Iterator[Tuple[int, int, int]]:
         "acl:relcl",    # relatívna veta („ktorý prišiel“)
         "appos",        # apozícia (Bratislava, hlavné mesto)
         "vocative",     # vokatív (v osloveniach)
+        "nmod"          # nominálny modifikátor (Donalda Trumpa)
     )
 
     doc = doclike.doc
@@ -53,7 +52,7 @@ def noun_chunks(doclike: Union[Doc, Span]) -> Iterator[Tuple[int, int, int]]:
             idx += 1
             chunk.append(doc[idx])
 
-        yield (chunk[0].left_edge.i, chunk[-1].right_edge.i + 1, np_label)
+        yield (chunk[0].i, chunk[-1].i + 1, np_label)
 
 
 SYNTAX_ITERATORS = {'noun_chunks': noun_chunks}

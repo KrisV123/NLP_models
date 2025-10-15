@@ -1,4 +1,9 @@
-def convert_conllup_2(conllup_path: str, final_path: str) -> None:
+def convert_conllup(conllup_path: str, final_path: str) -> None:
+    """
+    create new conllu file from conllup file.
+    Basically keeps first 10 columns
+    """
+
     with open(conllup_path, 'rb') as conllup,\
          open(final_path, 'ab') as conllu:
 
@@ -40,5 +45,4 @@ def convert_conllup_2(conllup_path: str, final_path: str) -> None:
                     lst_pnt += 1
 
             pnt = lst_pnt + 1
-
         del conllup_mv

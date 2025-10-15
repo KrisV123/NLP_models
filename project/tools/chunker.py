@@ -7,6 +7,11 @@ def save_file(group: list[TokenList], file_count: int, output_dir: Path) -> None
 
 
 def chunk_files(file_path: Path, output_dir: Path, chunk_size: int) -> None:
+    """
+    separate big file into smaller chunks.
+    Chunks size is ammount of sentences in one chunk
+    """
+
     with open(file_path, 'r', encoding='utf-8') as conllu:
         group = list()
         sent_count = 0
@@ -23,6 +28,10 @@ def chunk_files(file_path: Path, output_dir: Path, chunk_size: int) -> None:
 
 
 def merge_files(input_dir: Path, output_file: Path) -> None:
+    """
+    merge smaller chunks into one file
+    """
+
     for file_path in input_dir.iterdir():
         print(f'converting {str(file_path)}')
         with open(file_path, 'r', encoding='utf-8') as conllu:

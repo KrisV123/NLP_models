@@ -225,9 +225,13 @@ Trump may have campaigned as a president who would end wars, but he’s governin
 
 real_article = """
 Biely dom ostro skritizoval Nórsky Nobelov výbor po tom, ako udelil Nobelovu cenu za mier venezuelskej opozičnej líderke a aktivistke za demokraciu Maríi Corine Machadovej a prehliadol amerického prezidenta Donalda Trumpa.
-„Nobelov výbor dokázal, že uprednostňuje politiku pred mierom. Prezident Trump bude aj naďalej uzatvárať mierové dohody, ukončovať vojny a zachraňovať životy. Má srdce humanistu a nikdy nebude nikto ako on, kto dokáže hory prenášať silou svojej vôle,“ napísal na mikroblogovacej sieti X riaditeľ komunikačného odboru Bieleho domu Steven Cheung.
-Od návratu do Bieleho domu Trump opakovane tvrdí, že si zaslúži Nobelovu cenu za úlohu, ktorú zohral pri riešení viacerých konfliktov. Podľa pozorovateľov však tieto tvrdenia výrazne preháňajú.
-Americký prezident deň pred oznámením mena laureáta Nobelovej ceny za mier opäť zopakoval, že si ju zaslúži. Povedal, že tento týždeň pomohol sprostredkovať prvú fázu prímeria v Pásme Gazy a že ide už o ôsmu vojnu, ktorú ukončil.
+„Nobelov výbor dokázal, že uprednostňuje politiku pred mierom.
+Prezident Trump bude aj naďalej uzatvárať mierové dohody, ukončovať vojny a zachraňovať životy.
+Má srdce humanistu a nikdy nebude nikto ako on, kto dokáže hory prenášať silou svojej vôle,“ napísal na mikroblogovacej sieti X riaditeľ komunikačného odboru Bieleho domu Steven Cheung.
+Od návratu do Bieleho domu Trump opakovane tvrdí, že si zaslúži Nobelovu cenu za úlohu, ktorú zohral pri riešení viacerých konfliktov.
+Podľa pozorovateľov však tieto tvrdenia výrazne preháňajú.
+Americký prezident deň pred oznámením mena laureáta Nobelovej ceny za mier opäť zopakoval, že si ju zaslúži.
+Povedal, že tento týždeň pomohol sprostredkovať prvú fázu prímeria v Pásme Gazy a že ide už o ôsmu vojnu, ktorú ukončil.
 „Čokoľvek urobia, je v poriadku. Viem jedno: Nerobil som to kvôli tomu, robil som to preto, aby som zachránil mnoho životov,“ dodal vo štvrtok Trump.
 """
 
@@ -254,7 +258,8 @@ Najvyššiu mieru depresie (takmer polovica respondentov) hlásili zdravotnícki
 Správa preto vyzvala na nulovú toleranciu násilia a obťažovania v zdravotníckych zariadeniach, reformu na ukončenie kultúry nadčasov a dlhých pracovných zmien a zaručený prístup k službám duševného zdravia pre zdravotníckych pracovníkov.
 """
 
-ctm_text = "Ahoj. Volám sa Ferko. Bývam v Poddunajskej Byskupici a som alkoholik. Ale mne to nevadí."
+ctm_text = "Ahoj. Volám sa Ferko. Bývam v Horned Dolnej a som alkoholik. Ale mne to nevadí."
 ctm_text_2 = "JODIE FOSTER V CIRKUSE Jodie Foster sa vracia k filmu. Tentoraz ako režisérka a producentka. Flora Plum je ľúbostný príbeh, odohrávajúci sa počas tridsiatych rokov v prostredí cirkusu. Vlani získal toto ocenenie režisér Stanley Donen. ALAN SMITHEE V TELEVÍZII Alan Smithee je meno, ktoré sa používa v titulkoch, keď ražisér z rôznych príčin nesúhlasí s uvedením vlastného mena. Použitie tohto mena pri televíznom uvedení hraného filmu známeho z kín je nezvyčajné. HVIEZDY STOROČIA Kritérium je dosť kontroverzné. Sú v ňom i Greta Garbo, Betty Grable, Lucille Ball, Hedy Lamar, Mary Pickford, Ruth Gordon a Dinah Shore."
 ctm_text_3 = "Tento vlk zjedol všetky ovce a on je najedený"
 ctm_text_4 = "Mladý prišiel neskoro"
+ctm_text_5 = "Biely dom ostro skritizoval Nórsky Nobelov výbor po tom, ako udelil Nobelovu cenu za mier venezuelskej opozičnej líderke a aktivistke za demokraciu Maríi Corine Machadovej a prehliadol amerického prezidenta Donalda Trumpa."

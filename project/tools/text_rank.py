@@ -12,7 +12,6 @@ import pytextrank #type:ignore
 
 from operator import itemgetter
 from math import sqrt
-from project.tools.syntax_iterators import noun_chunks
 
 def phrase_generator(model_name: str,
                      text: str,
@@ -22,8 +21,6 @@ def phrase_generator(model_name: str,
     """
     Returns cleaned phrases generated from noun phrase generator
     """
-
-    nlp = spacy.load(model_name)
 
     @registry.misc("prefix_scrubber")
     def prefix_scrubber():
@@ -40,10 +37,14 @@ def phrase_generator(model_name: str,
             return span.text
         return scrubber_func
 
+    nlp = spacy.load(model_name)
     nlp.add_pipe('topicrank', config={"scrubber": {"@misc": "prefix_scrubber"}}, last=True)
     doc = nlp(text)
 
-    phrases = [(phrase.rank, phrase.text.count(' ') + 1, phrase.text) for phrase in doc._.phrases]
+    phrases = [
+        (phrase.rank, phrase.text.count(' ') + 1, phrase.text)
+        for phrase in doc._.phrases
+    ]
     phrases.sort(key=itemgetter(0))
 
     rel_phrases = list()
@@ -64,7 +65,7 @@ def text_summarization(model_name: str,
                        limit_phrases: int= 4) -> list[str]:
     """
     Returns most relevant sentences from article.
-    
+
     sents_ammount: Returns most n rated sentenses from article\n
     limit_phrases: sets ammount of phrases, which will be used to count ranking (default 4)
     """
@@ -74,11 +75,9 @@ def text_summarization(model_name: str,
 
     doc = nlp(text)
     sent_bound = [[sent.start, sent.end, set()] for sent in doc.sents]
-
-    phrase_id = 0
     unit_vector = list()
 
-    for phrase in doc._.phrases:
+    for phrase_id, phrase in enumerate(doc._.phrases):
         unit_vector.append(phrase.rank)
 
         for chunk in phrase.chunks:
@@ -89,7 +88,6 @@ def text_summarization(model_name: str,
                     phrases_idx_set.add(phrase_id)
                     break
 
-        phrase_id += 1
         if phrase_id == limit_phrases:
             break
 
@@ -98,18 +96,15 @@ def text_summarization(model_name: str,
         return [rank/summ for rank in vector]
 
     norm_unit_vect = normalize_vector(unit_vector)
-
     sent_rank: list[tuple[int, float]] = list()
-    sent_id = 0
 
-    for _, _, phrases_idx_set in sent_bound:
+    for sent_id, (_, _, phrases_idx_set) in enumerate(sent_bound):
         assert isinstance(phrases_idx_set, set)
         summ = 0.0
         for phrase_id in phrases_idx_set:
             summ += norm_unit_vect[phrase_id] ** 2.0
 
         sent_rank.append((sent_id, sqrt(summ)))
-        sent_id += 1
 
     sent_rank.sort(key=itemgetter(1), reverse=True)
     final_sents = sent_rank[:sents_ammount]
@@ -120,12 +115,11 @@ def text_summarization(model_name: str,
         sents_id[sent_id] = sent.text
         sent_id += 1
 
-    summary = list()
-    for id, rank in sorted(final_sents, key=itemgetter(0)):
-        if rank == 0.0:
-            continue
-        if id in sents_id:
-            summary.append(sents_id[id])
+    summary = [
+        sents_id[id]
+        for id, _ in sorted(final_sents, key=itemgetter(0))
+        if id in sents_id
+    ]
 
     return summary
 
@@ -139,6 +133,11 @@ def clean_sents(sents: list[str]) -> list[str]:
 
     cleaned_sents = list()
     for sent in sents:
+        while sent[0] == ' ':
+            sent = sent[1:]
+        while sent[-1] == ' ':
+            sent = sent[:-1]
+
         if sent[-1] != '.':
             if sent[-1] == ':':
                 sent = sent[0:-1] + '.'

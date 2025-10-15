@@ -31,7 +31,7 @@ def create_pretrain_json(nlp: spacy.language.Language, train_doc: str, output: s
         PRETRAIN_DATA_LIST.append(data)
 
     PRETRAIN_DATA = '\n'.join(PRETRAIN_DATA_LIST).encode('utf-8')
-    
+
     with open(output + '/pretrain.jsonl', 'wb') as f:
         f.write(PRETRAIN_DATA)
 
@@ -50,7 +50,7 @@ def get_exapmles_from_spacy(nlp: spacy.language.Language, train_doc: str) -> lis
     return examples
 
 
-def make_custom_example(nlp: spacy.language.Language, train_doc: str) -> list[Example]:    
+def make_custom_example(nlp: spacy.language.Language, train_doc: str) -> list[Example]:
     doc_bin = DocBin().from_disk(train_doc)
     docs = list(doc_bin.get_docs(vocab=nlp.vocab))
 
