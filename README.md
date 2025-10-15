@@ -1,4 +1,4 @@
-# Slovak NLP models for spacy framework
+# Slovak NLP models for Spacy framework
 
 A collection of 3 fully-trained CNN models for Slovak Language designed for lightweight usage.
 Every model include morphologizer, parser, tagger and trainable lemmatizer.
